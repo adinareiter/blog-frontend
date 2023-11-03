@@ -1,0 +1,16 @@
+#posts-index img {
+  width: 300px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.some-class {
+  width:200px;
+  padding:20px;
+}
+
+#posts-new {
+  
+}
