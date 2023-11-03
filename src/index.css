@@ -1,3 +1,29 @@
+/* header a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+header a:hover, a:active {
+  background-color: red;
+} */
+
+header a {
+  color: forestgreen;
+  font-size: x-large;
+  text-decoration: none;
+}
+
+header a:hover {
+  background-color: forestgreen;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 #posts-index img {
   width: 300px;
 }
@@ -11,6 +37,8 @@ html {
   padding:20px;
 }
 
-#posts-new {
-  
+body {
+  background-image: url(https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png);
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
