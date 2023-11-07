@@ -12,13 +12,13 @@ header a:hover, a:active {
 } */
 
 header a {
-  color: forestgreen;
+  color: burlywood;
   font-size: x-large;
   text-decoration: none;
 }
 
 header a:hover {
-  background-color: forestgreen;
+  background-color:burlywood;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background-image: url(https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png);
+background-color: antiquewhite;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

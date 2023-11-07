@@ -3,13 +3,16 @@ export function PostsIndex(props) {
   return (
     <div id="posts-index">
       <h3>All the Posts!</h3>
-      {props.posts.map((post) => (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
-          <img src={post.image} alt="post pics" />
-          <p>Body: {post.body} </p>
-        </div>
-      ))}
+      <div className="cards">
+        {props.posts.map((post) => (
+          <div key={post.id} className="card">
+            <h2>{post.title}</h2>
+            <img src={post.image} alt="post pics" />
+            <p>Body: {post.body} </p>
+            <button onClick={props.onPostShow}>Open Post</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

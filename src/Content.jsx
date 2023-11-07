@@ -1,39 +1,44 @@
+import { useState, useEffect } from "react";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { Modal } from "./Modal";
-
-<Modal show={true}>
-  <p>TEST</p>
-</Modal>;
+import axios from "axios";
 
 export function Content() {
-  let posts = [
-    {
-      id: 1,
-      title: "Chocolate",
-      body: "Chocolate makes everything better. The best place to put chocolate is in smoothies!",
-      image:
-        "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&q=60&w=1400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNob2NvbGF0ZSUyMHNtb290aGllfGVufDB8fDB8fHww",
-    },
-    {
-      id: 2,
-      title: "Coding",
-      body: "Coding is fun!",
-      image:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=60&w=1400&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kaW5nfGVufDB8fDB8fHww",
-    },
-    {
-      id: 3,
-      title: "My favorite place...",
-      body: "The beach!!",
-      image: "20230112_090848.jpg",
-    },
-  ];
+  //giving react the variable and the ability to set that variable
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+
+  //a function to toggle modal show on
+  const handleShowPost = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  //a function to toggle modal show to false, closes modal
+  const handleClose = () => {
+    setIsPostsShowVisible(false);
+  };
+
+  //a function to make web request to index post data
+  const [posts, setPosts] = useState([]);
+
+  const handleIndexPosts = () => {
+    axios.get("http://localhost:3000/posts.json").then((response) => {
+      console.log(response.data);
+      setPosts(response.data);
+    });
+  };
+
+  //react hook
+  useEffect(handleIndexPosts, []);
 
   return (
     <div>
+      <Modal show={isPostsShowVisible} onClose={handleClose}>
+        <p>TEST</p>
+      </Modal>
       <PostsNew />
-      <PostsIndex posts={posts} />
+      <PostsIndex posts={posts} onPostShow={handleShowPost} />
+      {/* <button onClick={handleIndexPosts}>Load Posts</button> */}
     </div>
   );
 }
