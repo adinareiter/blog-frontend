@@ -1,5 +1,10 @@
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
+import { Modal } from "./Modal";
+
+<Modal show={true}>
+  <p>TEST</p>
+</Modal>;
 
 export function Content() {
   let posts = [
