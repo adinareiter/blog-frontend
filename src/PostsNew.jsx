@@ -4,15 +4,19 @@ export function PostsNew() {
       <div>
         <h1>New post</h1>
       </div>
-      <div>
-        Title: <input type="text" />
-      </div>
-      <div>
-        Content: <input type="text" />
-      </div>
-      <div>
-        Image: <input type="image" />
-      </div>
+      <form action="">
+        <div>
+          Title: <input type="text" />
+        </div>
+        <div>
+          Content: <input type="text" />
+        </div>
+        {/* <div>
+        Image: <input type="URL" />
+      </div> */}
+        {/* <button>Submit</button> */}
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   );
 }
