@@ -9,8 +9,9 @@ export function Content() {
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
 
   //a function to toggle modal show on
-  const handleShowPost = () => {
+  const handleShowPost = (post) => {
     setIsPostsShowVisible(true);
+    setCurrentPost(post);
   };
 
   //a function to toggle modal show to false, closes modal
@@ -31,10 +32,16 @@ export function Content() {
   //react hook
   useEffect(handleIndexPosts, []);
 
+  //giving react the variable and the ability to set that variable
+  const [currentPost, setCurrentPost] = useState({});
+
+  // console.log("current post=" currentPost);
+
   return (
     <div>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <p>TEST</p>
+        <h2>{currentPost.title}</h2>
+        <p>{currentPost.body}</p>
       </Modal>
       <PostsNew />
       <PostsIndex posts={posts} onPostShow={handleShowPost} />
