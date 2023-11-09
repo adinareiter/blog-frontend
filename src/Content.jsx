@@ -3,6 +3,7 @@ import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { Modal } from "./Modal";
 import axios from "axios";
+import { PostsShow } from "./PostsShow";
 
 export function Content() {
   //giving react the variable and the ability to set that variable
@@ -38,10 +39,9 @@ export function Content() {
   // console.log("current post=" currentPost);
 
   return (
-    <div>
+    <div className="container">
       <Modal show={isPostsShowVisible} onClose={handleClose}>
-        <h2>{currentPost.title}</h2>
-        <p>{currentPost.body}</p>
+        <PostsShow post={currentPost} />
       </Modal>
       <PostsNew />
       <PostsIndex posts={posts} onPostShow={handleShowPost} />

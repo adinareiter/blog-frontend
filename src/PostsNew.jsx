@@ -6,16 +6,16 @@ export function PostsNew() {
       </div>
       <form action="">
         <div>
-          Title: <input type="text" />
+          Title <input type="text" />
         </div>
         <div>
-          Content: <input type="text" />
+          Content <input type="text" />
         </div>
         {/* <div>
         Image: <input type="URL" />
       </div> */}
         {/* <button>Submit</button> */}
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Post" />
       </form>
     </div>
   );
