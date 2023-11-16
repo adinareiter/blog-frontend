@@ -14,13 +14,13 @@ export function PostsNew(props) {
       <form onSubmit={handleSubmit}>
         {/* method="POST" action="http://localhost:3000/posts.json"> */}
         <div>
-          Title <input name="title" type="text" placeholder="Title" />
+          <input name="title" type="text" placeholder="Title" />
         </div>
         <div>
-          Content <input name="body" type="text" placeholder="Content" />
+          <input name="body" type="text" placeholder="Content" />
         </div>
         <div>
-          Image <input name="image" type="string" placeholder="Image Address" />
+          <input name="image" type="string" placeholder="Image Address" />
         </div>
         {/* <div>
         Image: <input type="URL" />

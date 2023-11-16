@@ -8,4 +8,10 @@ object-fit: cover;
   padding: 30px;
 }
 
+body {
+  background-color: antiquewhite !important;
+    text-align: center !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  } 
+
 
