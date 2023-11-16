@@ -1,19 +1,10 @@
-import axios from "axios";
-
-export function PostsNew() {
+export function PostsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault(); //don't want html to run form bc goes to backend
     console.log("handle submit");
     const params = new FormData(event.target);
-    axios
-      .post("http://localhost:3000/posts.json", params)
-      .then((response) => {
-        console.log(response.data);
-        event.target.reset(); //clears out form
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-      });
+    props.onCreatePost(params);
+    event.target.reset();
   };
   return (
     <div id="posts-new">
