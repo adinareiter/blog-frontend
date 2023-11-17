@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { Modal } from "./Modal";
-import axios from "axios";
 import { PostsShow } from "./PostsShow";
-import { Signup } from "./Signup";
+// import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 
@@ -73,7 +74,9 @@ export function Content() {
 
   return (
     <div className="container">
-      <Login />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
       <LogoutLink />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestroyPost} />
