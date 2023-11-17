@@ -3,6 +3,7 @@ import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LogoutLink } from "./LogoutLink";
 
 export function Header() {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
@@ -39,19 +40,19 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link active" aria-current="page">
+                <Link to="/home" className="nav-link active" aria-current="page">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/login" className="nav-link active" aria-current="page">
-                  Login
+                <Link to="/posts-index" className="nav-link">
+                  Posts
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#posts-index">
-                  All Posts
-                </a>
+                <Link to="/posts-new" className="nav-link active" aria-current="page">
+                  New Post
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -61,33 +62,26 @@ export function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Posts
+                  Acount
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link to="/posts-index" className="dropdown-item">
-                      All Posts
+                    <Link to="/login" className="dropdown-item">
+                      Login
                     </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
+                    <a className="nav-link" onClick={handleShowSignup}>
+                      Sign up!
                     </a>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
+                    <LogoutLink>Logout</LogoutLink>
                   </li>
                 </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={handleShowSignup}>
-                  Sign up
-                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -99,92 +93,6 @@ export function Header() {
           </div>
         </div>
       </nav>
-      {/* https://getbootstrap.com/docs/5.2/components/navs-tabs/ */}
-      {/* <ul className="nav nav-tabs" id="myTab" role="tablist">
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link active"
-            id="home-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#home-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="home-tab-pane"
-            aria-selected="true"
-          >
-            Home
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="posts-index"
-            data-bs-toggle="tab"
-            data-bs-target="#posts-index"
-            type="button"
-            role="tab"
-            aria-controls="profile-tab-pane"
-            aria-selected="false"
-          >
-            All Posts
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="contact-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#posts-new"
-            type="button"
-            role="tab"
-            aria-controls="contact-tab-pane"
-            aria-selected="false"
-          >
-            New Post
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            id="disabled-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#disabled-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="disabled-tab-pane"
-            aria-selected="false"
-            disabled
-          >
-            Disabled
-          </button>
-        </li>
-      </ul>
-      <div className="tab-content" id="myTabContent">
-        <div
-          className="tab-pane fade show active"
-          id="home-tab-pane"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-          tabindex="0"
-        >
-          ...
-        </div>
-        <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-          ...
-        </div>
-        <div className="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-          ...
-        </div>
-        <div
-          className="tab-pane fade"
-          id="disabled-tab-pane"
-          role="tabpanel"
-          aria-labelledby="disabled-tab"
-          tabindex="0"
-        >
-          ...
-        </div>
-      </div> */}
       <header>
         <Modal show={isSignupVisible} onClose={handleClose}>
           <Signup />

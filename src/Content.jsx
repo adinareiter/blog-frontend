@@ -7,7 +7,8 @@ import { Modal } from "./Modal";
 import { PostsShow } from "./PostsShow";
 // import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
+import { Home } from "./Home";
+import { PostsShowPage } from "./PostsShowPage";
 
 export function Content() {
   //giving react the variable and the ability to set that variable
@@ -75,14 +76,15 @@ export function Content() {
   return (
     <div className="container">
       <Routes>
+        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/posts-index" element={<PostsIndex posts={posts} onPostShow={handleShowPost} />} />
+        <Route path="/posts-new" element={<PostsNew onCreatePost={handleCreatePost} />} />
+        <Route path="/posts-index/:id" element={<PostsShowPage />} />
       </Routes>
-      <LogoutLink />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestroyPost} />
       </Modal>
-      <PostsNew onCreatePost={handleCreatePost} />
       {/* <button onClick={handleIndexPosts}>Load Posts</button> */}
     </div>
   );
