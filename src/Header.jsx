@@ -1,5 +1,22 @@
 // import "./App.css";
+import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { useState } from "react";
+
 export function Header() {
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
+
+  // opens modal
+  const handleShowSignup = () => {
+    setIsSignupVisible(true);
+    setCurrentPost(post);
+  };
+
+  // closes modal
+  const handleClose = () => {
+    setIsSignupVisible(false);
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -62,7 +79,9 @@ export function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
+                <a className="nav-link" onClick={handleShowSignup}>
+                  Sign up
+                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -75,7 +94,7 @@ export function Header() {
         </div>
       </nav>
       {/* https://getbootstrap.com/docs/5.2/components/navs-tabs/ */}
-      <ul className="nav nav-tabs" id="myTab" role="tablist">
+      {/* <ul className="nav nav-tabs" id="myTab" role="tablist">
         <li className="nav-item" role="presentation">
           <button
             className="nav-link active"
@@ -159,8 +178,11 @@ export function Header() {
         >
           ...
         </div>
-      </div>
+      </div> */}
       <header>
+        <Modal show={isSignupVisible} onClose={handleClose}>
+          <Signup />
+        </Modal>
         {/* <a href="#">Home</a> | <a href="#posts-index">All posts</a> | <a href="#posts-new">New post</a> */}
       </header>
     </div>

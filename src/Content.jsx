@@ -73,7 +73,6 @@ export function Content() {
 
   return (
     <div className="container">
-      <Signup />
       <Login />
       <LogoutLink />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
