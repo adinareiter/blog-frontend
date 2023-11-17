@@ -76,13 +76,13 @@ export function Content() {
     <div className="container">
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/posts-index" element={<PostsIndex posts={posts} onPostShow={handleShowPost} />} />
       </Routes>
       <LogoutLink />
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestroyPost} />
       </Modal>
       <PostsNew onCreatePost={handleCreatePost} />
-      <PostsIndex posts={posts} onPostShow={handleShowPost} />
       {/* <button onClick={handleIndexPosts}>Load Posts</button> */}
     </div>
   );

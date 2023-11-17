@@ -5,6 +5,7 @@ export function PostsNew(props) {
     const params = new FormData(event.target);
     props.onCreatePost(params);
     event.target.reset();
+    window.location.href = "/posts-index";
   };
   return (
     <div id="posts-new">

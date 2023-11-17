@@ -61,13 +61,13 @@ export function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Create Post
+                  Posts
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#posts-new">
-                      Click here to create post
-                    </a>
+                    <Link to="/posts-index" className="dropdown-item">
+                      All Posts
+                    </Link>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
