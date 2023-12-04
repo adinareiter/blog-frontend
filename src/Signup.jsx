@@ -4,7 +4,7 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
-
+  const [status, setStatus] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors([]);
@@ -18,6 +18,7 @@ export function Signup() {
         event.target.reset();
       })
       .catch((error) => {
+        setStatus(error.response.status);
         console.log(error.response.data.errors);
         setErrors(error.resonse.data.errors);
       });
@@ -25,6 +26,8 @@ export function Signup() {
   return (
     <div id="signup">
       <h3>Sign up!</h3>
+      {/* ternary syntax for a conditional: */}
+      {status ? <img src={`https://http.cat/${status}`} /> : null}
       <form onSubmit={handleSubmit}>
         <div>
           <input

@@ -65,31 +65,32 @@ export function Header() {
                   Acount
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/login" className="dropdown-item">
-                      Login
-                    </Link>
-                  </li>
-                  <li>
-                    <a className="nav-link" onClick={handleShowSignup}>
-                      Sign up!
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <LogoutLink>Logout</LogoutLink>
-                  </li>
+                  {localStorage.jwt === undefined ? (
+                    <>
+                      <li className="nav-item">
+                        <a className="nav-link" onClick={handleShowSignup}>
+                          Signup
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" to="/login">
+                          Login
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                        <LogoutLink>Logout</LogoutLink>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
